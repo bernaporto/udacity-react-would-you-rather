@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import QuestionPreview from "./QuestionPreview";
-import Card from "./Card";
 
 const styles = {
   tabGroup: {

@@ -1,24 +1,41 @@
-import React from 'react';
-import Navigation from './components/Navigation';
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { handleInitialData } from "./store/actions/shared";
 import { BrowserRouter as Router } from 'react-router-dom';
-import Signin from './components/Signin';
+import { LoadingBar } from 'react-redux-loading';
+import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
-import QuestionPage from './components/QuestionPage';
  
-function App() {
-  return (
-    <Router>
-      <div className="app-container">
-        <div className="app-header">
-          <Navigation />
-          <div>Login data</div>
+class App extends Component {
+  componentDidMount() {
+		this.props.dispatch(handleInitialData());
+  }
+  
+  render() {
+    return (
+      <Router>
+        <div className="app-container">
+          <div className="app-header">
+            <Navigation />
+            <div>Login data</div>
+          </div>
+          <Fragment>
+            <LoadingBar />
+          </Fragment>
+          { this.props.loading === true ? null :
+            <div className="app-content">
+              <HomePage/>
+            </div> }
         </div>
-        <div className="app-content">
-          <QuestionPage/>
-        </div>
-      </div>
-    </Router>
-  );
+      </Router>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+	return {
+		loading: authedUser === null,
+	};
+}
+
+export default connect(mapStateToProps)(App);
