@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Signin from './components/Signin';
 import HomePage from './components/HomePage';
+import QuestionPage from './components/QuestionPage';
  
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <div>Login data</div>
         </div>
         <div className="app-content">
-          <HomePage/>
+          <QuestionPage/>
         </div>
       </div>
     </Router>

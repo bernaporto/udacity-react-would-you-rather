@@ -123,9 +123,16 @@ li {
   margin: 10px;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .btn-submit {
