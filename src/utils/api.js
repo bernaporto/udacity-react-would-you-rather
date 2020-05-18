@@ -1,7 +1,7 @@
 import {
   _getUsers,
   _getQuestions,
-} from './_DATA.js'
+} from './_DATA'
 
 export function getInitialData () {
   return Promise.all([
