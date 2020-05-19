@@ -151,18 +151,6 @@ li {
   align-items: center;
 }
 
-.btn-submit {
-  min-height: 32px;
-  margin-top: 10px;
-  color: white;
-  background-color: var(--main-color);
-  border: none;
-}
-
-.btn-show {
-  min-height: 32px;
-  margin-top: 10px;
-  color: var(--main-color);
-  background-color: transparent;
-  border: 1px solid var(--main-color);
+.justify-center {
+  justify-content: center;
 }

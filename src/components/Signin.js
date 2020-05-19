@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from '../resources/logo.svg';
 import Card from "./Card";
+import { defaultStyles } from "../utils/constants";
 
 const styles = {
   logo: {
@@ -24,7 +25,7 @@ class Signin extends Component {
             <option>User name</option>
             <option>User name</option>
           </select>
-          <button className="btn-submit" type="submit">Sign in</button>
+          <button style={defaultStyles.button} type="submit">Sign in</button>
         </form>
       </Card>
     )
