@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from "./store/actions/shared";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { LoadingBar } from 'react-redux-loading';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import QuestionPage from './components/QuestionPage';
  
 class App extends Component {
   componentDidMount() {
@@ -24,7 +25,8 @@ class App extends Component {
           </Fragment>
           { this.props.loading === true ? null :
             <div className="app-content">
-              <HomePage/>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/question/:id" component={QuestionPage} />
             </div> }
         </div>
       </Router>

@@ -1,18 +1,37 @@
 import React, { Component } from "react";
-import Question from "./Question";
+import QuestionCard from "./QuestionCard";
 import QuestionResult from "./QuestionResult";
+import { connect } from "react-redux";
+import { keysToArray } from "../utils/helpers";
 
 class QuestionPage extends Component {
   render() {
-    const answered = true;
+    const { id, answered } = this.props.match.params;
+
     return (
       <div>
         { !answered 
-          ? <Question/> 
-          : <QuestionResult/> }
+          ? <QuestionCard id={id} /> 
+          : <QuestionResult id={id} />}
       </div>
     );
   }
 }
 
-export default QuestionPage;
+function mapStateToProps({ authedUser, questions, users }, props) {
+  const { id } = props.match.params;
+  const question = questions[id];
+  
+  const answers = keysToArray(users[authedUser].answers);
+  const answered = (
+    answers.includes(question.optionOne.text) ||
+    answers.includes(question.optionTwo.text)
+  );
+
+  return {
+    id,
+    answered,
+  }
+}
+
+export default connect(mapStateToProps)(QuestionPage);

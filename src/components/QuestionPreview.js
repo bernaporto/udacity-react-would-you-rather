@@ -1,17 +1,28 @@
 import React from "react";
 import Card from "./Card";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { colors, defaultStyles } from "../utils/constants";
 
 const styles = {
   avatar: {
-    borderRadius: "50%",
+    ...defaultStyles.avatar,
+
+    marginLeft: 30,
+    marginRight: 30,
     height: 80,
-    margin: "5px 30px",
+  },
+  button: {
+    ...defaultStyles.button,
+    
+    color: colors.PRIMARY,
+    backgroundColor: "transparent",
+    border: `1px solid ${colors.PRIMARY}`,
   }
 };
 
 function QuestionPreview(props) {
-  const { author, questionPreview } = props;
+  const { author, preview, id } = props;
 
   return (
     <Card
@@ -21,8 +32,8 @@ function QuestionPreview(props) {
         <img style={styles.avatar} src={author.avatarURL} alt={`${author.name}'s avatar`} />
         <div className="flex-column">
           <h4>Would you rather</h4>
-          <p>... { questionPreview } ...</p>
-          <button className="btn-show">View Poll</button>
+          <p>... { preview } ...</p>
+          <Link to={`/question/${id}`} style={styles.button}>View Poll</Link>
         </div>
       </div>
     </Card>
@@ -33,10 +44,10 @@ function mapStateToProp({ questions, users }, { id }) {
   const question = questions[id];
   const author = users[question.author];
   
-  const questionPreview = question.optionOne.text.substring(0, 15).trim();
+  const preview = question.optionOne.text.substring(0, 15).trim();
 
   return {
-    questionPreview,
+    preview,
     author,
   }
 }
