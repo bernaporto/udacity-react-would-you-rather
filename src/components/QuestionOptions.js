@@ -3,12 +3,28 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { defaultStyles, OptionID } from "../utils/constants";
 import { handleSaveAnswer } from "../store/actions/shared";
-import { Redirect } from "react-router-dom";
+
+const styles = {
+  option: {
+    display: "flex",
+    alignItems: "center",
+    marginTop: 5,
+    marginBottom: 10,
+  },
+  label: {
+    marginLeft: 10,
+    fontSize: "0.8em"
+  },
+  disabled: {
+    ...defaultStyles.button,
+
+    opacity: 0.5,
+  }
+};
 
 class QuestionOptions extends Component {
   state = {
     selected: "",
-    submited: false,
   };
 
   onSelectOption = (e) => {
@@ -24,14 +40,10 @@ class QuestionOptions extends Component {
     const { selected } = this.state;
 
     dispatch(handleSaveAnswer(question.id, selected));
-
-    this.setState({ submited: true });
   };
 
   render() {
-    const { selected, submited } = this.state;
-
-    if (submited) return <Redirect to="/" />
+    const { selected } = this.state;
 
     const { question } = this.props;
     const disabled = selected === "";
@@ -81,24 +93,3 @@ function mapStateToProps({ questions }, { id }) {
 }
 
 export default connect(mapStateToProps)(QuestionOptions);
-
-
-/*  CSS STYLES  */
-
-const styles = {
-  option: {
-    display: "flex",
-    alignItems: "center",
-    marginTop: 5,
-    marginBottom: 10,
-  },
-  label: {
-    marginLeft: 10,
-    fontSize: "0.8em"
-  },
-  disabled: {
-    ...defaultStyles.button,
-
-    opacity: 0.5,
-  }
-};
