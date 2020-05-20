@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { defaultStyles } from "../utils/constants";
+import { defaultStyles, OptionID } from "../utils/constants";
 import { handleSaveAnswer } from "../store/actions/shared";
 import { Redirect } from "react-router-dom";
 
@@ -57,8 +57,8 @@ class QuestionOptions extends Component {
       <form className="flex-column" onSubmit={this.submitAnswer}>
         <h3>Would You Rather...</h3>
 
-        {getRadioInput(optionOne, "optionOne")}
-        {getRadioInput(optionTwo, "optionTwo")}
+        {getRadioInput(optionOne, OptionID.one)}
+        {getRadioInput(optionTwo, OptionID.two)}
 
         <button
           disabled={disabled}

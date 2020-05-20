@@ -12,7 +12,7 @@ const tabs = [{
   name: "Answered Questions",
 }];
 
-class HomePage extends Component {
+class Home extends Component {
   state = {
     selectedTab: tabs[0].id,
   };
@@ -65,4 +65,4 @@ function mapStateToProps({ authedUser, questions, users }) {
   }
 }
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(Home);

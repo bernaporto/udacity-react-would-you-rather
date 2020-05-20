@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { colors } from "../utils/constants";
+import { colors, OptionID } from "../utils/constants";
 
 const styles = {
   container: {
@@ -44,13 +44,13 @@ function QuestionResults(props) {
         text: optionOne.text,
         votes: votesOptOne,
         total: votesOptOne + votesOptTwo,
-        selected: answer === "optionOne",
+        selected: answer === OptionID.one,
       }}/>
       <AnswerResult data={{
         text: optionTwo.text,
         votes: votesOptTwo,
         total: votesOptOne + votesOptTwo,
-        selected: answer === "optionTwo",
+        selected: answer === OptionID.two,
       }}/>
     </div>
   );

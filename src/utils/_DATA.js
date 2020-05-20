@@ -1,3 +1,5 @@
+import { OptionID } from "./constants";
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
@@ -136,11 +138,11 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
     id: generateUID(),
     timestamp: Date.now(),
     author,
-    optionOne: {
+    [OptionID.one]: {
       votes: [],
       text: optionOneText,
     },
-    optionTwo: {
+    [OptionID.two]: {
       votes: [],
       text: optionTwoText,
     }

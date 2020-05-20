@@ -4,8 +4,9 @@ import { handleInitialData } from "./store/actions/shared";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { LoadingBar } from 'react-redux-loading';
 import Header from './components/Header';
-import HomePage from './components/HomePage';
-import QuestionPage from './components/QuestionPage';
+import Home from './components/Home';
+import NewQuestion from './components/NewQuestion';
+import Question from './components/Question';
  
 class App extends Component {
   componentDidMount() {
@@ -24,8 +25,9 @@ class App extends Component {
 
           { this.props.loading === true ? null :
             <div className="app-content">
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/question/:id" component={QuestionPage} />
+              <Route exact path="/" component={Home} />
+              <Route path="/question/:id" component={Question} />
+              <Route path="/new-question" component={NewQuestion} />
             </div> }
         </div>
       </Router>

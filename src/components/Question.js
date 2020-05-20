@@ -16,7 +16,7 @@ const styles = {
   },
 };
 
-class QuestionPage extends Component {
+class Question extends Component {
   render() {
     const { id, answered, author } = this.props;
     const title = (
@@ -55,4 +55,4 @@ function mapStateToProps({ authedUser, questions, users }, props) {
   }
 }
 
-export default connect(mapStateToProps)(QuestionPage);
+export default connect(mapStateToProps)(Question);

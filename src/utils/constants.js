@@ -1,3 +1,8 @@
+export const OptionID = {
+  one: "optionOne",
+  two: "optionTwo"
+};
+
 export const colors = {
   PRIMARY: "#008066",
   SECONDARY: "#e6f3f0",
@@ -25,5 +30,5 @@ export const defaultStyles = {
     color: colors.WHITE,
     backgroundColor: colors.PRIMARY,
     border: "none",
-  }
+  },
 }
