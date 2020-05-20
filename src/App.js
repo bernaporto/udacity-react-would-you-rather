@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { handleInitialData } from "./store/actions/shared";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { LoadingBar } from 'react-redux-loading';
-import Navigation from './components/Navigation';
+import Header from './components/Header';
 import HomePage from './components/HomePage';
 import QuestionPage from './components/QuestionPage';
  
@@ -16,13 +16,12 @@ class App extends Component {
     return (
       <Router>
         <div className="app-container">
-          <div className="app-header">
-            <Navigation />
-            <div>Login data</div>
-          </div>
+          <Header/>
+
           <Fragment>
             <LoadingBar />
           </Fragment>
+
           { this.props.loading === true ? null :
             <div className="app-content">
               <Route exact path="/" component={HomePage} />
