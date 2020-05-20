@@ -26,16 +26,18 @@ class Question extends Component {
     );
 
     return (
-      <Card title={title}>
-        <div className="flex-row align-center">
-          <img style={styles.avatar} src={author.avatarURL} alt={`${author.name}'s avatar`} />
+      <div className="page-content">
+        <Card title={title}>
+          <div className="flex-row align-center">
+            <img style={styles.avatar} src={author.avatarURL} alt={`${author.name}'s avatar`} />
 
-          {!answered
-            ? <QuestionOptions id={id} />
-            : <QuestionResults id={id} />}
+            {!answered
+              ? <QuestionOptions id={id} />
+              : <QuestionResults id={id} />}
 
-        </div>
-      </Card>
+          </div>
+        </Card>
+      </div>
     );
   }
 }

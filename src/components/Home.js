@@ -26,22 +26,24 @@ class Home extends Component {
 
     const questions = (
       this.state.selectedTab === tabs[0].id
-      ? unanswered
-      : answered
+        ? unanswered
+        : answered
     );
 
     return (
-      <div className="card">
-        <TabGroup
-          tabs={tabs}
-          selected={this.state.selectedTab}
-          onSelect={this.onSelectTab}
-        />
+      <div className="page-content">
+        <div className="card">
+          <TabGroup
+            tabs={tabs}
+            selected={this.state.selectedTab}
+            onSelect={this.onSelectTab}
+          />
 
-        <div className="card-content">
-          {questions.map(id => (
-            <QuestionPreview key={id} id={id}/>
-          ))}
+          <div className="card-content">
+            {questions.map(id => (
+              <QuestionPreview key={id} id={id} />
+            ))}
+          </div>
         </div>
       </div>
     );

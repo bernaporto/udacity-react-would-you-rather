@@ -8,7 +8,7 @@ const styles = {
   avatar: {
     ...defaultStyles.avatar,
 
-    marginLeft: 30,
+    marginLeft: 20,
     marginRight: 30,
     height: 80,
   },

@@ -32,6 +32,11 @@ h3, h4 {
   margin: 10px 0;
 }
 
+h5 {
+  margin: 5px 0;
+  color: #5c5c5c
+}
+
 p {
   margin: 5px 0;
 }
@@ -70,9 +75,17 @@ input {
   align-items: center;
 }
 
-.card {
+.page-content {
+  margin-top: 5px;
   min-width: 400px;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card {
+  position: relative;
+  margin: 5px 0;
   border: 1px solid #cccccc;
 }
 
@@ -86,6 +99,26 @@ input {
   display: flex;
   flex-direction: column;
   padding: 10px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .btn {
@@ -138,30 +171,4 @@ li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
-}
-
-.avatar {
-  height: 50px;
-  border-radius: 25px;
-  margin: 10px;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
 }

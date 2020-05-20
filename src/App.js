@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { LoadingBar } from 'react-redux-loading';
 import Header from './components/Header';
 import Home from './components/Home';
+import Leaderboard from './components/Leaderboard';
 import NewQuestion from './components/NewQuestion';
 import Question from './components/Question';
  
@@ -28,6 +29,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/question/:id" component={Question} />
               <Route path="/new-question" component={NewQuestion} />
+              <Route path="/leaderboard" component={Leaderboard} />
             </div> }
         </div>
       </Router>

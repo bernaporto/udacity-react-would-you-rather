@@ -16,6 +16,7 @@ export const colors = {
 
 export const defaultStyles = {
   avatar: {
+    alignSelf: "center",
     borderRadius: "50%",
     margin: 5,
   },

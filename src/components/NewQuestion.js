@@ -59,45 +59,47 @@ class NewQuestion extends Component {
 
   render() {
     if (this.state.submited) return (
-      <Redirect to="/"/>
+      <Redirect to="/" />
     );
 
     const disabled = !(this.state.optionOne && this.state.optionTwo);
 
     return (
-      <div className="card">
-        <h3 style={styles.title}>Create New Question</h3>
-        <div className="card-content">
-          <p>Complete the question:</p>
-          
-          <br/>
-          
-          <h4>Would you rather...</h4>
-          
-          <form className="flex-column" onSubmit={this.submitQuestion}>
-            <input
-              placeholder="Enter Option One Text Here"
-              style={styles.input}
-              onChange={e => this.setOptionText(OptionID.one, e.target.value)}
-            />
+      <div className="page-content">
+        <div className="card">
+          <h3 style={styles.title}>Create New Question</h3>
+          <div className="card-content">
+            <p>Complete the question:</p>
 
-            <div className="flex-row align-center">
-              <div style={styles.line}></div>
-              <h5 style={{ margin: 10 }}>OR</h5>
-              <div style={styles.line}></div>
-            </div>
+            <br />
 
-            <input
-              placeholder="Enter Option Two Text Here"
-              style={styles.input}
-              onChange={e => this.setOptionText(OptionID.two, e.target.value)}
-            />
+            <h4>Would you rather...</h4>
 
-            <button type="submit" style={disabled ? styles.disabled : defaultStyles.button}>
-              Submit
+            <form className="flex-column" onSubmit={this.submitQuestion}>
+              <input
+                placeholder="Enter Option One Text Here"
+                style={styles.input}
+                onChange={e => this.setOptionText(OptionID.one, e.target.value)}
+              />
+
+              <div className="flex-row align-center">
+                <div style={styles.line}></div>
+                <h5 style={{ margin: 10 }}>OR</h5>
+                <div style={styles.line}></div>
+              </div>
+
+              <input
+                placeholder="Enter Option Two Text Here"
+                style={styles.input}
+                onChange={e => this.setOptionText(OptionID.two, e.target.value)}
+              />
+
+              <button type="submit" style={disabled ? styles.disabled : defaultStyles.button}>
+                Submit
             </button>
-          </form>
-        </div>  
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
