@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Navigation from './Navigation';
 import { defaultStyles } from '../utils/constants';
+import { setAuthedUser } from '../store/actions/authedUser';
+import Navigation from './Navigation';
 
 const styles = {
   avatar: {
@@ -24,13 +25,13 @@ function Header(props) {
   const { user, dispatch } = props;
 
   const logout = () => {
-    // dispatch(/* logout */)
+    dispatch(setAuthedUser(null));
   };
 
   return (
     <div className="app-header">
       <div className="app-header-content">
-        <Navigation />
+        <Navigation />        
 
         <div style={styles.loginArea}>
           {user

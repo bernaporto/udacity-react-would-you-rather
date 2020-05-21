@@ -1,48 +1,51 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { colors } from './utils/constants';
 import { handleInitialData } from './store/actions/shared';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { LoadingBar } from 'react-redux-loading';
+import { keysToArray } from './utils/helpers';
 import Header from './components/Header';
 import Home from './components/Home';
 import Leaderboard from './components/Leaderboard';
+import LoadingBar from 'react-redux-loading';
 import NewQuestion from './components/NewQuestion';
+import NotFound from './components/NotFound';
+import ProtectedRoute from './components/ProtectedRoute';
 import Question from './components/Question';
 import Signin from './components/Signin';
 
 class App extends Component {
   componentDidMount() {
-		this.props.dispatch(handleInitialData());
+    this.props.dispatch(handleInitialData());
   }
 
   render() {
     return (
       <Router>
-        <div className="app-container">
-          <Header/>
+        <Fragment>
+          <LoadingBar style={{ backgroundColor: colors.PRIMARY, height: 5 }} />
+          {this.props.loaded
+            ? <div className="app-container">
+                <div className="app-content">
+                  <Switch>
+                    <ProtectedRoute exact path="/" component={Home} />
+                    <ProtectedRoute path="/question/:id" component={Question} />
+                    <ProtectedRoute path="/add" component={NewQuestion} />
+                    <ProtectedRoute path="/leaderboard" component={Leaderboard} />
+                    <Route path="/signin" component={Signin} />
+                    <Route component={NotFound} />
+                  </Switch>
+                </div>
 
-          <Fragment>
-            <LoadingBar />
-          </Fragment>
-
-          { this.props.loading === true ? null :
-            <div className="app-content">
-              <Route exact path="/" component={Home} />
-              <Route path="/question/:id" component={Question} />
-              <Route path="/add" component={NewQuestion} />
-              <Route path="/leaderboard" component={Leaderboard} />
-              <Route path="/signin" component={Signin} />
-            </div> }
-        </div>
+                <Header />
+              </div>
+            : null}
+        </Fragment>
       </Router>
     );
   }
 }
 
-function mapStateToProps({ authedUser }) {
-	return {
-		loading: authedUser === null,
-	};
-}
+const mapStateToProps = ({ users }) => ({ loaded: keysToArray(users).length > 0 });
 
 export default connect(mapStateToProps)(App);

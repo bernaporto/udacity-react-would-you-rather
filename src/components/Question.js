@@ -5,6 +5,7 @@ import { keysToArray } from '../utils/helpers';
 import Card from './Card';
 import QuestionOptions from './QuestionOptions';
 import QuestionResults from './QuestionResults';
+import { Redirect } from 'react-router-dom';
 
 const styles = {
   avatar: {
@@ -19,6 +20,9 @@ const styles = {
 class Question extends Component {
   render() {
     const { id, answered, author } = this.props;
+
+    if (!author) return <Redirect to="/404" />
+
     const title = (
       answered
       ? `Asked by ${author.name}`
@@ -45,10 +49,10 @@ class Question extends Component {
 function mapStateToProps({ authedUser, questions, users }, props) {
   const { id } = props.match.params;
   const question = questions[id];
-  const author = users[question.author];
+  const author = question && users[question.author];
 
   const answers = keysToArray(users[authedUser].answers);
-  const answered = answers.includes(question.id);
+  const answered = answers.includes(id);
 
   return {
     id,
