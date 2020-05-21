@@ -12,16 +12,18 @@ const styles = {
     marginBottom: 5,
   },
   progressGroup: {
-    backgroundColor: colors.MID_GRAY,
+    height: 25,
     margin: '10px 0',
+    backgroundColor: colors.MID_GRAY,
   },
   progressBar: {
-    backgroundColor: colors.PRIMARY,
-    color: colors.WHITE,
-    fontSize: '0.8em',
+    height: 25,
     display: 'flex',
     justifyContent: 'flex-end',
     padding: '0 5px',
+    fontSize: '0.8em',
+    color: colors.WHITE,
+    backgroundColor: colors.PRIMARY,
   },
   text: {
     fontSize: '0.8em',
@@ -59,7 +61,7 @@ function QuestionResults(props) {
 function AnswerResult(props) {
   const { text, votes, total, selected } = props.data;
 
-  const percentage = `${(votes/total)*100}%`;
+  const percentage = `${Math.round((votes/total)*100)}%`;
   const selectedStyles = {
     resultGroup: {
       ...styles.resultGroup,
@@ -78,9 +80,12 @@ function AnswerResult(props) {
       <p style={selected ? selectedStyles.text: styles.text}>{`Would you rather ${text}?`}</p>
 
       <div style={styles.progressGroup}>
-        <div style={{ ...styles.progressBar, width: percentage }}>
-          <p>{percentage}</p>
-        </div>
+        {votes/total > 0
+          ? <div style={{ ...styles.progressBar, width: percentage }}>
+              <p>{ percentage }</p>
+            </div>
+          : null    
+        }
       </div>
 
       <p style={{ ...styles.text, textAlign: 'center' }}>{`${votes} out of ${total} votes`}</p>

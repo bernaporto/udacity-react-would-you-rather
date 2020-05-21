@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { colors } from '../utils/constants';
 
 const styles = {
@@ -46,11 +45,5 @@ function TabGroup(props) {
     </div>
   );
 }
-
-TabGroup.propTypes = {
-  tabs: PropTypes.array,
-  selected: PropTypes.string,
-  onSelect: PropTypes.func,
-};
 
 export default TabGroup;

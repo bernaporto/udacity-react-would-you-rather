@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { defaultStyles, OptionID } from '../utils/constants';
 import { handleSaveAnswer } from '../store/actions/shared';
@@ -81,10 +80,6 @@ class QuestionOptions extends Component {
     );
   }
 }
-
-QuestionOptions.propTypes = {
-  id: PropTypes.string,
-};
 
 function mapStateToProps({ questions }, { id }) {
   return {

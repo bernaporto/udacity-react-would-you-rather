@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { defaultStyles, colors } from '../utils/constants';
 import Card from './Card';
 
@@ -88,15 +87,5 @@ function LeaderboardCard(props) {
     </div>
   );
 }
-
-LeaderboardCard.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    avatarURL: PropTypes.string,
-  }),
-  answered: PropTypes.number,
-  created: PropTypes.number,
-  index: PropTypes.number,
-};
 
 export default LeaderboardCard;
