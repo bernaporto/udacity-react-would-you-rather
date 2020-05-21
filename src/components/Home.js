@@ -56,10 +56,12 @@ function mapStateToProps({ authedUser, questions, users }) {
   const unanswered = [];
 
   const answers = keysToArray(user.answers);
-  valuesToArray(questions).forEach(question => {
-    if (answers.includes(question.id)) answered.push(question.id);
-    else unanswered.push(question.id);
-  });
+  valuesToArray(questions)
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .forEach(question => {
+      if (answers.includes(question.id)) answered.push(question.id);
+      else unanswered.push(question.id);
+    });
 
   return {
     unanswered,
