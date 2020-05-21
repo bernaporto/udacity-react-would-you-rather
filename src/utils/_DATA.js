@@ -122,13 +122,13 @@ function generateUID () {
 }
 
 export function _getUsers () {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(() => res({...users}), 1000);
   });
 }
 
 export function _getQuestions () {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(() => res({...questions}), 1000);
   });
 }
@@ -150,7 +150,7 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
 }
 
 export function _saveQuestion (question) {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
 
@@ -174,7 +174,7 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(() => {
       users = {
         ...users,

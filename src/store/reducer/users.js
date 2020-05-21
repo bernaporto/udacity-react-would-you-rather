@@ -9,7 +9,7 @@ export default function users(state = {}, action) {
         ...action.users,
       };
 
-    case SAVE_ANSWER:
+    case SAVE_ANSWER:{
       const { authedUser, qid, answer } = action;
 
       return {
@@ -22,6 +22,7 @@ export default function users(state = {}, action) {
           }
         }
       };
+    }
 
     default:
       return state;
