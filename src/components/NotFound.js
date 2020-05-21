@@ -1,6 +1,6 @@
-import React from "react";
-import sadFace from "../resources/sad-face.svg"
-import { colors } from "../utils/constants";
+import React from 'react';
+import sadFace from '../resources/sad-face.svg';
+import { colors } from '../utils/constants';
 
 const styles = {
   sadFace: {
@@ -20,7 +20,7 @@ const styles = {
   }
 };
 
-function NotFound(props) {
+function NotFound() {
   return(
     <div className="page-content align-center">
       <img style={styles.sadFace} src={sadFace} alt="Sad face" />

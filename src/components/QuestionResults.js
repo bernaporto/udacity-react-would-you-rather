@@ -84,7 +84,7 @@ function AnswerResult(props) {
           ? <div style={{ ...styles.progressBar, width: percentage }}>
               <p>{ percentage }</p>
             </div>
-          : null    
+          : null
         }
       </div>
 

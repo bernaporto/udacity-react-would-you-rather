@@ -21,7 +21,7 @@ class Question extends Component {
   render() {
     const { id, answered, author } = this.props;
 
-    if (!author) return <Redirect to="/404" />
+    if (!author) return <Redirect to="/404" />;
 
     const title = (
       answered

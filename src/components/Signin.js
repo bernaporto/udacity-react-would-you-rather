@@ -14,19 +14,19 @@ const styles = {
   },
   disabled: {
     ...defaultStyles.button,
-    
+
     opacity: 0.5,
   }
 };
 
 class Signin extends Component {
   state = {
-    selected: "none",
+    selected: 'none',
   };
 
   signin = (e) => {
     e.preventDefault();
-    
+
     const { selected } = this.state;
     this.props.dispatch(setAuthedUser(selected));
   }
@@ -39,8 +39,8 @@ class Signin extends Component {
   render() {
     const { authedUser, userIDs, location } = this.props;
 
-    const toPath = (location.state && location.state.from) || "/";
-    if (authedUser) return <Redirect to={toPath} />
+    const toPath = (location.state && location.state.from) || '/';
+    if (authedUser) return <Redirect to={toPath} />;
 
     const { selected } = this.state;
     const disabled = !userIDs.includes(selected);

@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
 
 function ProtectedRoute({ authedUser, location, component: Component, ...rest }) {
   return (
@@ -9,9 +9,9 @@ function ProtectedRoute({ authedUser, location, component: Component, ...rest })
         authedUser
           ? <Component {...props} />
           : <Redirect to={{
-              pathname: "/signin",
+              pathname: '/signin',
               state: { from: location.pathname } }} />
-      )} 
+      )}
     />
   );
 }

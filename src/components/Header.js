@@ -31,7 +31,7 @@ function Header(props) {
   return (
     <div className="app-header">
       <div className="app-header-content">
-        <Navigation />        
+        <Navigation />
 
         <div style={styles.loginArea}>
           {user
