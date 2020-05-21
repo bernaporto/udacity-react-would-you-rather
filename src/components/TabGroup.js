@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import { colors } from "../utils/constants";
+import { colors } from '../utils/constants';
 
 const styles = {
   tabGroup: {
-    display: "flex",
-    borderBottom: "1px solid #cccccc",
-    justifyContent: "space-evenly",
+    display: 'flex',
+    borderBottom: '1px solid #cccccc',
+    justifyContent: 'space-evenly',
   },
   tab: {
     padding: 10,
-    border: "none",
-    fontWeight: "normal",
+    border: 'none',
+    fontWeight: 'normal',
     color: colors.BLACK,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     flex: 1
   },
   selected: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: colors.PRIMARY,
     backgroundColor: colors.LIGHT_GRAY,
   },

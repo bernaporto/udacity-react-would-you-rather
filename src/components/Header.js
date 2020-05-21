@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import Navigation from "./Navigation";
-import { defaultStyles } from "../utils/constants";
+import React from 'react';
+import { connect } from 'react-redux';
+import Navigation from './Navigation';
+import { defaultStyles } from '../utils/constants';
 
 const styles = {
   avatar: {
@@ -12,11 +12,11 @@ const styles = {
   },
   loginArea: {
     minWidth: 200,
-    display: "flex",
+    display: 'flex',
   },
   button: {
-    border: "none",
-    backgroundColor: "transparent",
+    border: 'none',
+    backgroundColor: 'transparent',
   }
 };
 

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { defaultStyles } from "../utils/constants";
-import { keysToArray } from "../utils/helpers";
-import Card from "./Card";
-import QuestionOptions from "./QuestionOptions";
-import QuestionResults from "./QuestionResults";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { defaultStyles } from '../utils/constants';
+import { keysToArray } from '../utils/helpers';
+import Card from './Card';
+import QuestionOptions from './QuestionOptions';
+import QuestionResults from './QuestionResults';
 
 const styles = {
   avatar: {
@@ -20,7 +20,7 @@ class Question extends Component {
   render() {
     const { id, answered, author } = this.props;
     const title = (
-      answered 
+      answered
       ? `Asked by ${author.name}`
       : `${author.name} asks:`
     );
@@ -54,7 +54,7 @@ function mapStateToProps({ authedUser, questions, users }, props) {
     id,
     answered,
     author,
-  }
+  };
 }
 
 export default connect(mapStateToProps)(Question);

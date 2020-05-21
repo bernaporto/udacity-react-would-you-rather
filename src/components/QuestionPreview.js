@@ -1,8 +1,8 @@
-import React from "react";
-import Card from "./Card";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { colors, defaultStyles } from "../utils/constants";
+import React from 'react';
+import Card from './Card';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { colors, defaultStyles } from '../utils/constants';
 
 const styles = {
   avatar: {
@@ -14,9 +14,9 @@ const styles = {
   },
   button: {
     ...defaultStyles.button,
-    
+
     color: colors.PRIMARY,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     border: `1px solid ${colors.PRIMARY}`,
   }
 };
@@ -43,13 +43,13 @@ function QuestionPreview(props) {
 function mapStateToProp({ questions, users }, { id }) {
   const question = questions[id];
   const author = users[question.author];
-  
+
   const preview = question.optionOne.text.substring(0, 15).trim();
 
   return {
     preview,
     author,
-  }
+  };
 }
 
 export default connect(mapStateToProp)(QuestionPreview);

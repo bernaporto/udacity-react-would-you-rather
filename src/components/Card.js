@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from 'react';
 
 const styles = {
   title: {
@@ -15,7 +15,7 @@ export default function Card(props) {
   return (
     <div className="card">
       { getHeader(title, subtitle) }
-      
+
       <div className="card-content">
         { children }
       </div>
@@ -29,7 +29,7 @@ function getHeader(title, subtitle) {
   return (
     <div className="card-header">
       <h4 style={styles.title}>{ title }</h4>
-      { subtitle 
+      { subtitle
           ? <p style={styles.subtitle}>{ subtitle }</p>
           : null }
     </div>

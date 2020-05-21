@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { valuesToArray, keysToArray } from "../utils/helpers";
-import QuestionPreview from "./QuestionPreview";
-import TabGroup from "./TabGroup";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { valuesToArray, keysToArray } from '../utils/helpers';
+import QuestionPreview from './QuestionPreview';
+import TabGroup from './TabGroup';
 
 const tabs = [{
-  id: "unanswered",
-  name: "Unanswered Questions",
+  id: 'unanswered',
+  name: 'Unanswered Questions',
 }, {
-  id: "answered",
-  name: "Answered Questions",
+  id: 'answered',
+  name: 'Answered Questions',
 }];
 
 class Home extends Component {
@@ -64,7 +64,7 @@ function mapStateToProps({ authedUser, questions, users }) {
   return {
     unanswered,
     answered,
-  }
+  };
 }
 
 export default connect(mapStateToProps)(Home);

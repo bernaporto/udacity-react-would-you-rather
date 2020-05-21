@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import { colors, OptionID } from "../utils/constants";
+import React from 'react';
+import { connect } from 'react-redux';
+import { colors, OptionID } from '../utils/constants';
 
 const styles = {
   container: {
@@ -8,24 +8,24 @@ const styles = {
   },
   resultGroup: {
     border: `1px solid ${colors.MID_GRAY}`,
-    padding: "10px 20px",
+    padding: '10px 20px',
     marginBottom: 5,
   },
   progressGroup: {
     backgroundColor: colors.MID_GRAY,
-    margin: "10px 0",
+    margin: '10px 0',
   },
   progressBar: {
     backgroundColor: colors.PRIMARY,
     color: colors.WHITE,
-    fontSize: "0.8em",
-    display: "flex",
-    justifyContent: "flex-end",
-    padding: "0 5px",
+    fontSize: '0.8em',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: '0 5px',
   },
   text: {
-    fontSize: "0.8em",
-    fontWeight: "bold",
+    fontSize: '0.8em',
+    fontWeight: 'bold',
   }
 };
 
@@ -71,19 +71,19 @@ function AnswerResult(props) {
       ...styles.text,
       color: colors.PRIMARY,
     },
-  }
+  };
 
   return (
     <div style={selected ? selectedStyles.resultGroup : styles.resultGroup}>
       <p style={selected ? selectedStyles.text: styles.text}>{`Would you rather ${text}?`}</p>
-      
+
       <div style={styles.progressGroup}>
         <div style={{ ...styles.progressBar, width: percentage }}>
           <p>{percentage}</p>
         </div>
       </div>
-      
-      <p style={{ ...styles.text, textAlign: "center" }}>{`${votes} out of ${total} votes`}</p>
+
+      <p style={{ ...styles.text, textAlign: 'center' }}>{`${votes} out of ${total} votes`}</p>
     </div>
   );
 }
@@ -95,7 +95,7 @@ function mapStateToProps({ authedUser, questions, users }, { id }) {
   return {
     question,
     answer: user.answers[question.id],
-  }
+  };
 }
 
 export default connect(mapStateToProps)(QuestionResults);

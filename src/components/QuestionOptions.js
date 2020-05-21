@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { defaultStyles, OptionID } from "../utils/constants";
-import { handleSaveAnswer } from "../store/actions/shared";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { defaultStyles, OptionID } from '../utils/constants';
+import { handleSaveAnswer } from '../store/actions/shared';
 
 const styles = {
   option: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
     marginTop: 5,
     marginBottom: 10,
   },
   label: {
     marginLeft: 10,
-    fontSize: "0.8em"
+    fontSize: '0.8em'
   },
   disabled: {
     ...defaultStyles.button,
@@ -24,7 +24,7 @@ const styles = {
 
 class QuestionOptions extends Component {
   state = {
-    selected: "",
+    selected: '',
   };
 
   onSelectOption = (e) => {
@@ -46,7 +46,7 @@ class QuestionOptions extends Component {
     const { selected } = this.state;
 
     const { question } = this.props;
-    const disabled = selected === "";
+    const disabled = selected === '';
 
     const optionOne = question.optionOne.text;
     const optionTwo = question.optionTwo.text;
@@ -89,7 +89,7 @@ QuestionOptions.propTypes = {
 function mapStateToProps({ questions }, { id }) {
   return {
     question: questions[id],
-  }
+  };
 }
 
 export default connect(mapStateToProps)(QuestionOptions);

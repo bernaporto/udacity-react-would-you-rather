@@ -1,13 +1,13 @@
-import { showLoading, hideLoading } from "react-redux-loading";
-import { getInitialData, saveQuestionAnswer } from "../../utils/api";
-import { receiveUsers } from "./users";
-import { receiveQuestions } from "./questions";
-import { setAuthedUser } from "./authedUser";
+import { showLoading, hideLoading } from 'react-redux-loading';
+import { getInitialData, saveQuestionAnswer } from '../../utils/api';
+import { receiveUsers } from './users';
+import { receiveQuestions } from './questions';
+import { setAuthedUser } from './authedUser';
 
-export const SAVE_ANSWER = "SAVE_ANSWER";
+export const SAVE_ANSWER = 'SAVE_ANSWER';
 
 export function handleInitialData() {
-  const authedUserID = "tylermcginnis";
+  const authedUserID = 'tylermcginnis';
 
   return dispatch => {
     dispatch(showLoading());
@@ -33,7 +33,7 @@ function saveAnswer(authedUser, qid, answer) {
 export function handleSaveAnswer(qid, answer) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
-    
+
     saveQuestionAnswer(authedUser, qid, answer)
       .then(() => dispatch(saveAnswer(authedUser, qid, answer)));
   };

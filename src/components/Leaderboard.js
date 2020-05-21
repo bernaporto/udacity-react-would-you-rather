@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { keysToArray, valuesToArray } from "../utils/helpers";
-import LeaderboardCard from "./LeaderboardCard";
+import React from 'react';
+import { connect } from 'react-redux';
+import { keysToArray, valuesToArray } from '../utils/helpers';
+import LeaderboardCard from './LeaderboardCard';
 
 function Leaderboard(props) {
   const { scoreList } = props;
@@ -25,7 +25,7 @@ function mapStateToProps({ users }) {
   const scoreList = valuesToArray(users)
     .map(user => {
       const answered = keysToArray(user.answers).length;
-      const created = keysToArray(user.questions).length
+      const created = keysToArray(user.questions).length;
 
       return {
         user: {
@@ -35,7 +35,7 @@ function mapStateToProps({ users }) {
         score: answered + created,
         answered,
         created,
-      }
+      };
     })
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);

@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { colors, defaultStyles, OptionID } from "../utils/constants";
-import { handleSaveQuestion } from "../store/actions/questions";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { colors, defaultStyles, OptionID } from '../utils/constants';
+import { handleSaveQuestion } from '../store/actions/questions';
+import { Redirect } from 'react-router-dom';
 
 const styles = {
   title: {
-    textAlign: "center",
+    textAlign: 'center',
     margin: 0,
     padding: 10,
     borderBottom: `1px solid ${colors.MID_GRAY}`
@@ -18,20 +18,20 @@ const styles = {
   input: {
     hight: 26,
     border: `1px solid ${colors.MID_GRAY}`,
-    margin: "3px 0",
-    padding: "5px 10px",
+    margin: '3px 0',
+    padding: '5px 10px',
   },
   disabled: {
     ...defaultStyles.button,
 
     opacity: 0.5,
   }
-}
+};
 
 class NewQuestion extends Component {
   state = {
-    [OptionID.one]: "",
-    [OptionID.two]: "",
+    [OptionID.one]: '',
+    [OptionID.two]: '',
     submited: false,
   };
 
@@ -51,8 +51,8 @@ class NewQuestion extends Component {
     ));
 
     this.setState({
-      [OptionID.one]: "",
-      [OptionID.two]: "",
+      [OptionID.one]: '',
+      [OptionID.two]: '',
       submited: true,
     });
   };

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import logo from '../resources/logo.svg';
-import Card from "./Card";
-import { defaultStyles } from "../utils/constants";
+import Card from './Card';
+import { defaultStyles } from '../utils/constants';
 
 const styles = {
   logo: {
-    margin: "auto",
+    margin: 'auto',
     maxWidth: 200,
   }
 };
@@ -28,7 +28,7 @@ class Signin extends Component {
           <button style={defaultStyles.button} type="submit">Sign in</button>
         </form>
       </Card>
-    )
+    );
   }
 }
 

@@ -1,35 +1,35 @@
 export const OptionID = {
-  one: "optionOne",
-  two: "optionTwo"
+  one: 'optionOne',
+  two: 'optionTwo'
 };
 
 export const colors = {
-  PRIMARY: "#008066",
-  SECONDARY: "#e6f3f0",
-  
-  LIGHT_GRAY: "#eeeeee",
-  MID_GRAY: "#cccccc",
+  PRIMARY: '#008066',
+  SECONDARY: '#e6f3f0',
 
-  WHITE: "#ffffff",
-  BLACK: "#000000",
+  LIGHT_GRAY: '#eeeeee',
+  MID_GRAY: '#cccccc',
+
+  WHITE: '#ffffff',
+  BLACK: '#000000',
 };
 
 export const defaultStyles = {
   avatar: {
-    alignSelf: "center",
-    borderRadius: "50%",
+    alignSelf: 'center',
+    borderRadius: '50%',
     margin: 5,
   },
   button: {
     minHeight: 32,
     marginTop: 10,
-    fontSize: "0.8em",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    fontSize: '0.8em',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     color: colors.WHITE,
     backgroundColor: colors.PRIMARY,
-    border: "none",
+    border: 'none',
   },
-}
+};

@@ -1,0 +1,61 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", // Regex for Component Factory to use,
+      "pragma": "React", // Pragma to use, default to "React"
+      "version": "16.6.3",
+      "flowVersion": "0.53" // Flow version
+    },
+    "linkComponents": [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+      "Hyperlink",
+      {
+        "name": "Link",
+        "linkAttribute": "to"
+      }
+    ]
+  },
+  "rules": {
+    "block-spacing": "error",
+    "camelcase": "error",
+    "eol-last": "error",
+    "jsx-quotes": ["error", "prefer-double"],
+    "semi": "error",
+    "semi-spacing": "error",
+    "semi-style": "error",
+    "no-array-constructor": "error",
+    "no-extra-semi": "error",
+    "no-multi-spaces": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+    "no-multi-str": "error",
+    "no-new-object": "error",
+    "no-new-wrappers": "error",
+    "no-trailing-spaces": "error",
+    "no-var": "error",
+    "quotes": ["error", "single"]
+  }
+}
