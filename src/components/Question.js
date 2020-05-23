@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { defaultStyles } from '../utils/constants';
 import { keysToArray } from '../utils/helpers';
@@ -17,33 +17,31 @@ const styles = {
   },
 };
 
-class Question extends Component {
-  render() {
-    const { id, answered, author } = this.props;
+function Question(props) {
+  const { id, answered, author } = props;
 
-    if (!author) return <Redirect to="/404" />;
+  if (!author) return <Redirect to="/404" />;
 
-    const title = (
-      answered
+  const title = (
+    answered
       ? `Asked by ${author.name}`
       : `${author.name} asks:`
-    );
+  );
 
-    return (
-      <div className="page-content">
-        <Card title={title}>
-          <div className="flex-row align-center">
-            <img style={styles.avatar} src={author.avatarURL} alt={`${author.name}'s avatar`} />
+  return (
+    <div className="page-content">
+      <Card title={title}>
+        <div className="flex-row align-center">
+          <img style={styles.avatar} src={author.avatarURL} alt={`${author.name}'s avatar`} />
 
-            {!answered
-              ? <QuestionOptions id={id} />
-              : <QuestionResults id={id} />}
+          {!answered
+            ? <QuestionOptions id={id} />
+            : <QuestionResults id={id} />}
 
-          </div>
-        </Card>
-      </div>
-    );
-  }
+        </div>
+      </Card>
+    </div>
+  );
 }
 
 function mapStateToProps({ authedUser, questions, users }, props) {

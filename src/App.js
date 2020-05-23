@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { colors } from './utils/constants';
@@ -14,36 +14,34 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Question from './components/Question';
 import Signin from './components/Signin';
 
-class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(handleInitialData());
-  }
+function App(props) {
+  useEffect(() => {
+    props.dispatch(handleInitialData());
+  });
 
-  render() {
-    return (
-      <Router>
-        <Fragment>
-          <LoadingBar style={{ backgroundColor: colors.PRIMARY, height: 5 }} />
-          {this.props.loaded
-            ? <div className="app-container">
-                <div className="app-content">
-                  <Switch>
-                    <ProtectedRoute exact path="/" component={Home} />
-                    <ProtectedRoute path="/question/:id" component={Question} />
-                    <ProtectedRoute path="/add" component={NewQuestion} />
-                    <ProtectedRoute path="/leaderboard" component={Leaderboard} />
-                    <Route path="/signin" component={Signin} />
-                    <Route component={NotFound} />
-                  </Switch>
-                </div>
+  return (
+    <Router>
+      <Fragment>
+        <LoadingBar style={{ backgroundColor: colors.PRIMARY, height: 5 }} />
+        {props.loaded
+          ? <div className="app-container">
+            <div className="app-content">
+              <Switch>
+                <ProtectedRoute exact path="/" component={Home} />
+                <ProtectedRoute path="/question/:id" component={Question} />
+                <ProtectedRoute path="/add" component={NewQuestion} />
+                <ProtectedRoute path="/leaderboard" component={Leaderboard} />
+                <Route path="/signin" component={Signin} />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
 
-                <Header />
-              </div>
-            : null}
-        </Fragment>
-      </Router>
-    );
-  }
+            <Header />
+          </div>
+          : null}
+      </Fragment>
+    </Router>
+  );
 }
 
 const mapStateToProps = ({ users }) => ({ loaded: keysToArray(users).length > 0 });
