@@ -32,7 +32,7 @@ function App(props) {
                 <ProtectedRoute path="/add" component={NewQuestion} />
                 <ProtectedRoute path="/leaderboard" component={Leaderboard} />
                 <Route path="/signin" component={Signin} />
-                <Route component={NotFound} />
+                <ProtectedRoute component={NotFound} />
               </Switch>
             </div>
 
